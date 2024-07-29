@@ -1,0 +1,41 @@
+<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">  <!--템플릿 상속-->
+<div layout:fragment="content" class="container">   <!-- layout의 content fragment에 삽입 -->
+
+    <label> id : </label> <input id="id"><br>
+    <label> pw : </label> <input id="pw"><br>
+    <label> repw : </label> <input id="repw"><br>
+    <label> name : </label> <input id="name"><br>
+    <label> email : </label> <input id="email"><br>
+    <button onclick="signup()">회원가입</button>
+
+    <script>
+        function signup()
+        {
+            var id = $("#id").val();
+            var pw = $("#pw").val();
+            var repw = $("#repw").val();
+            var name = $("#name").val();
+            var email = $("#email").val();
+
+            $.ajax({
+                 url : "/user/signupprocess",
+                 data : {
+                    "userId" : id,
+                    "password" : pw,
+                    "rePassword" : repw,
+                    "name" : name,
+                    "email" : email
+                },
+                 method : "POST",
+                 success : data => {
+                    alert(data);
+                 },
+                 error : e => alert(e.responseText)
+                });
+
+        }
+
+
+    </script>
+
+</div>
