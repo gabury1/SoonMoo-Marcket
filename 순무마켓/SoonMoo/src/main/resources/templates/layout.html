@@ -45,10 +45,15 @@
 <body>
     <!-- Hero 구성요소 -->
     <div class="hero">
-        <div class="top-right-buttons">
+        
+        <div sec:authorize="isAnonymous()" class="top-right-buttons">
             <a href="/login" class="btn btn-light btn-sm" >로그인</a>
             <a href="/user/signup" class="btn btn-light btn-sm">회원가입</a>
         </div>
+        <div sec:authorize="isAuthenticated()" class="top-right-buttons">
+            <a href="/logout"  class="btn btn-light btn-sm" >로그아웃</a>
+        </div>
+
         <div class="container">
             <h1 class="display-4">순무마켓</h1>
             <div class="d-flex justify-content-center">

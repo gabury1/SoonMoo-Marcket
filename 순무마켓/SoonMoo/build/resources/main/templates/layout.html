@@ -46,7 +46,8 @@
     <!-- Hero 구성요소 -->
     <div class="hero">
         <div class="top-right-buttons">
-            <a href="/login" class="btn btn-light btn-sm" >로그인</a>
+            <a href="/login" sec:authorize="isAnonymous()" class="btn btn-light btn-sm" >로그인</a>
+            <a href="/logout" sec:authorize="isAuthenticated()" class="btn btn-light btn-sm" >로그아웃</a>
             <a href="/user/signup" class="btn btn-light btn-sm">회원가입</a>
         </div>
         <div class="container">
