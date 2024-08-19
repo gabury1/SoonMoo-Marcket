@@ -1,0 +1,79 @@
+<html
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <form action="/flee/create" enctype="multipart/form-data"  method="post" style="width: 60%; padding: 20px; border: 2px solid #ccc; border-radius: 10px; background-color: white;">
+        <!-- 제목 입력 -->
+        <div style="margin-bottom: 20px;">
+            <label for="title" style="font-size: 18px; font-weight: bold;">제목:</label><br>
+            <input type="text" id="title" name="title" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+    
+        <!-- 내용 입력 -->
+        <div style="margin-bottom: 20px;">
+            <label for="content" style="font-size: 18px; font-weight: bold;">내용:</label><br>
+            <textarea id="content" name="content" rows="10" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+        </div>
+    
+        <!-- 카테고리 선택 -->
+        <div style="margin-bottom: 20px;">
+            <label for="category" style="font-size: 18px; font-weight: bold;">카테고리:</label><br>
+            <select id="category" name="category" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="category1">카테고리 1</option>
+                <option value="category2">카테고리 2</option>
+                <option value="category3">카테고리 3</option>
+            </select>
+        </div>
+    
+        <!-- 이미지 업로드 -->
+        <div style="margin-bottom: 20px;">
+            <label for="imagefile" style="font-size: 18px; font-weight: bold;">이미지 업로드:</label><br>
+            <input multiple type="file" id="imagefile" name="files" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+    
+        <!-- 글쓰기 완료 버튼 -->
+        <div style="text-align: right;">
+            <button type="submit" style="padding: 10px 20px; font-size: 16px; color: white; background-color: #4CAF50; border: none; border-radius: 5px; cursor: pointer;">
+                글쓰기 완료
+            </button>
+        </div>
+
+            <!-- 가격 입력 -->
+        <div style="margin-bottom: 20px;">
+            <label for="price" style="font-size: 18px; font-weight: bold;">가격:</label><br>
+            <input type="number" id="price" name="price" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" placeholder="가격을 입력하세요">
+        </div>
+    </form>
+
+    <script>
+
+        $("#imagefile").on("change", 
+            function(){
+
+            var fileName = $("#imagefile").val();
+            var files = $('input[name="file"]')[0].files;
+            
+            fileName = fileName .slice(fileName .indexOf(".") + 1).toLowerCase();
+            
+            if(files.length > 5)
+            {
+                alert("이미지는 5개까지 등록할 수 있습니다.")
+                $("#imagefile").val("");
+                return;
+            }
+
+            if(fileName != "jpg" && fileName != "png" &&  fileName != "gif" &&  fileName != "bmp")
+            {
+                alert("이미지 파일만 등록할 수 있습니다.");
+                $("#imagefile").val("");
+                return;
+            }
+
+        });
+        
+    </script>
+
+
+</div>
+</html>

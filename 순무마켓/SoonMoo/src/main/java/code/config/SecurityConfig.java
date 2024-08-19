@@ -53,7 +53,18 @@ public class SecurityConfig {
                                 .usernameParameter("userId")
                                 .passwordParameter("password")
                                 .defaultSuccessUrl("/")
-                );
+                        );
+        
+        // oauth2
+	http
+                .oauth2Login((oauth2) -> oauth2
+                                .loginPage("/login")
+                                .userInfoEndpoint((userInfoEndpointConfig) -> userInfoEndpointConfig
+                                .userService(userService)) 
+                                .defaultSuccessUrl("/")
+                        );
+                                
+                
         // 로그아웃 경로
         http
                 .logout( logout -> logout
@@ -62,13 +73,7 @@ public class SecurityConfig {
 
                 );
 
-        // oauth2
-	http
-                .oauth2Login((oauth2) -> oauth2
-                        .loginPage("/login")
-                        .userInfoEndpoint((userInfoEndpointConfig) -> userInfoEndpointConfig
-                        .userService(userService))  
-                );
+
         
         //경로별 인가 작업
         http

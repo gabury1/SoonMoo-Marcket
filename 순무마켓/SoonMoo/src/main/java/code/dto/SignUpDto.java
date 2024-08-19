@@ -11,7 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.validator.routines.EmailValidator;
 
-import code.domain.User.UserEntity;
+import code.domain.user.UserEntity;
 
 
 

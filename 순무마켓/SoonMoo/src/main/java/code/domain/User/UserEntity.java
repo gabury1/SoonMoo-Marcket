@@ -1,4 +1,4 @@
-package code.domain.User;
+package code.domain.user;
 
 import code.dto.UserDto;
 import jakarta.persistence.Column;

@@ -39,17 +39,28 @@
             left: 10px;
             width: 180px; /* 로고 크기 조정 */
         }
+        .content{
+            width: 100%;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+        }
+
     </style>
 </head>
 
 <body>
     <!-- Hero 구성요소 -->
     <div class="hero">
-        <div class="top-right-buttons">
-            <a href="/login" sec:authorize="isAnonymous()" class="btn btn-light btn-sm" >로그인</a>
-            <a href="/logout" sec:authorize="isAuthenticated()" class="btn btn-light btn-sm" >로그아웃</a>
+        
+        <div sec:authorize="isAnonymous()" class="top-right-buttons">
+            <a href="/login" class="btn btn-light btn-sm" >로그인</a>
             <a href="/user/signup" class="btn btn-light btn-sm">회원가입</a>
         </div>
+        <div sec:authorize="isAuthenticated()" class="top-right-buttons">
+            <a href="/logout"  class="btn btn-light btn-sm" >로그아웃</a>
+        </div>
+
         <div class="container">
             <h1 class="display-4">순무마켓</h1>
             <div class="d-flex justify-content-center">
@@ -62,7 +73,9 @@
         <img th:src="@{\images\순무마켓_로고-removebg-preview.png}" alt="순무마켓 로고" class="logo">
     </div>
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-    <th:block layout:fragment="content"></th:block>
+    
+    <th:block class="content" layout:fragment="content"></th:block>
+    
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
 </body>
 

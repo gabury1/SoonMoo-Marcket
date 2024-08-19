@@ -13,8 +13,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import code.domain.User.UserEntity;
-import code.domain.User.UserRepository;
+import code.domain.user.UserEntity;
+import code.domain.user.UserRepository;
 import code.dto.SignUpDto;
 import code.dto.UserDto;
 import lombok.RequiredArgsConstructor;

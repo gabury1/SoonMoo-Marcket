@@ -1,4 +1,4 @@
-package code.domain.User;
+package code.domain.user;
 
 import java.util.List;
 import java.util.Optional;

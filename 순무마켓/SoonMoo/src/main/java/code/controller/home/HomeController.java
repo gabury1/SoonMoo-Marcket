@@ -18,11 +18,6 @@ public class HomeController
         return "/flee/fleeList";
     }
     
-    @RequestMapping(path="/flee", method=RequestMethod.GET)
-    public String flee() {
-        return "/flee/fleeList";
-    }
-    
     @RequestMapping(path="/neighborhood", method=RequestMethod.GET)
     public String neighborhood() {
         return "/neighborhood/neighborhoodList";
