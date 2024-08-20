@@ -4,6 +4,37 @@
       layout:decorate="~{layout}">
 <div layout:fragment="content">
 
-    중고장터
+    <div style="width:60%">
     <a href="/flee/write">글쓰기</a>
+    <div class="container mt-3" style="width:60%">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="검색...">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">검색</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 카테고리 선택 버튼 -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <!-- 왼쪽 이동 버튼 -->
+            <button class="btn btn-light mr-2">←</button>
+      
+            <!-- 카테고리 버튼 -->
+            <button class="btn btn-warning mx-2">카테고리1</button>
+            <button class="btn btn-warning mx-2">카테고리2</button>
+            <!-- 필요한 만큼 카테고리 버튼 추가 -->
+      
+            <!-- 오른쪽 이동 버튼 -->
+            <button class="btn btn-light ml-2">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

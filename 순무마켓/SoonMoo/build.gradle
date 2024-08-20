@@ -45,7 +45,10 @@ dependencies {
 	// Thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-
+	
+	// JSON 라이브러리
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1' // json 파서 쓰려구 데려왔음
+	implementation group: 'org.json', name: 'json', version: '20220320'  //
 
 	// IO	
 	implementation 'org.springframework.boot:spring-boot-starter-mail' // Email sender

@@ -41,7 +41,7 @@ public record ItemDto (
         if(files != null) fileCnt = files.size();
         
         if(title == "") throw new Exception("제목을 입력해주세요.");
-        if(price < 0) throw new Exception("가격을 입력해주세요.");
+        if(price == null) throw new Exception("가격을 입력해주세요.");
         if(content == "") throw new Exception("내용을 입력해주세요.");
         if(category == "") throw new Exception("카테고리를 입력해주세요.");
         if(fileCnt > 5) throw new Exception("사진이 너무 많습니다.");

@@ -4,6 +4,105 @@
       layout:decorate="~{layout}">
 <div layout:fragment="content">
 
-    중고장터
+    <div style="width:60%">
     <a href="/flee/write">글쓰기</a>
+    <div class="container d-flex justify-content-between align-items-center py-3">
+        <!-- 검색창 (보라색 부분) -->
+        <div class="input-group" style="width: 40%;">
+            <select class="form-select-sm" id="inputGroupSelect01" style="width: 100px;">
+                <option selected>전체</option>
+                <option value="1">카테고리 1</option>
+                <option value="2">카테고리 2</option>
+            </select>
+            <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+            <button class="btn btn-outline-secondary" type="button">검색</button>
+        </div>
+    
+        <!-- 카테고리 선택 (노란색 부분) -->
+        <div class="d-flex align-items-center" id="categoryContainer" style="width : 50%">
+            <button id="prevButton" class="btn btn-outline-secondary rounded-circle me-2">&lt;</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">생활용품</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">가전제품</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">취미</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">레저</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">도서</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">카테고리 6</button>
+            <button class="btn btn-outline-secondary me-2" style="width:20%">카테고리 7</button>
+            <button id="nextButton" class="btn btn-outline-secondary rounded-circle ms-2">&gt;</button>
+        </div>
+
+
+        
+    </div>
+    <div class="container mt-4">
+        <!-- 중고품 목록 -->
+        <div class="list-group">
+            <!-- 중고품 항목 -->
+            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <img src="thumbnail1.jpg" alt="Thumbnail" class="img-thumbnail me-3" style="width: 60px; height: 60px;">
+                    <div class="d-flex flex-column">
+                        <h5 class="mb-1">중고품 제목</h5>
+                        <small class="text-muted">작성자: 작성자명 | 카테고리: 카테고리명 | 조회수: 123 | 작성시간: 2024-08-21 12:34</small>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-primary fw-bold">₩100,000</span>
+                </div>
+            </div>
+    
+            <!-- 중고품 항목 -->
+            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <img src="thumbnail2.jpg" alt="Thumbnail" class="img-thumbnail me-3" style="width: 60px; height: 60px;">
+                    <div class="d-flex flex-column">
+                        <h5 class="mb-1">다른 중고품 제목</h5>
+                        <small class="text-muted">작성자: 작성자명 | 카테고리: 카테고리명 | 조회수: 456 | 작성시간: 2024-08-20 15:20</small>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-primary fw-bold">₩50,000</span>
+                </div>
+            </div>
+    
+            <!-- 다른 항목들도 동일한 형식으로 추가하면 됩니다 -->
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = document.querySelectorAll('#categoryContainer .btn-outline-secondary:not(.rounded-circle)');
+            let currentIndex = 0;
+            let show = 4;
+        
+            function updateCategoryVisibility() {
+                categories.forEach((category, index) => {
+                    if (index >= currentIndex && index < currentIndex + show) {
+                        category.style.display = 'inline-block';  // 보여지는 카테고리
+                    } else {
+                        category.style.display = 'none';  // 숨겨지는 카테고리
+                    }
+                });
+            }
+        
+            document.getElementById('nextButton').addEventListener('click', function() {
+                if (currentIndex < categories.length - show) {
+                    currentIndex++;
+                    updateCategoryVisibility();
+                }
+            });
+        
+            document.getElementById('prevButton').addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCategoryVisibility();
+                }
+            });
+        
+            // 초기 표시 설정
+            updateCategoryVisibility();
+        });
+
+    </script>
+
 </div>
